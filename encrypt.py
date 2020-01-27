@@ -32,19 +32,21 @@ def matriceG(matH, l):
     for m in matH:
         newMat.append(m[newMatSize:])
 
-
-    matTranspose = np.transpose(newMat)
+    matTranspose = np.transpose(newMat).tolist()
 
     newIdentity = newIdentity.tolist()
 
-    matG = []
-    # for m in newIdentity:
-    #     print(m.extend(matTranspose))
+    print("new identity = ", newIdentity)
+    print("transpose = ", matTranspose)
 
-    matG = np.concatenate(newIdentity, matTranspose)
+    matG = []
+    cpt = 0
+    for m in newIdentity:
+        matG.append(m + matTranspose[cpt])
+        cpt += 1
+
     print("mat G = ", matG)
 
-
-    #print(np.concatenate())
+    # print(np.concatenate())
 
     matTransmpose = np.transpose(newMat)
